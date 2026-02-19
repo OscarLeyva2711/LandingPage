@@ -13,7 +13,10 @@
             </tr>
           </thead>
           <tbody>
+            <!-- v-for: itera sobre el array 'rows' y genera una fila <tr> por cada elemento.
+                 :key es obligatorio en v-for — ayuda a Vue a identificar cada fila de forma única -->
             <tr v-for="(row, i) in rows" :key="i">
+              <!-- Itera sobre cada celda dentro de la fila -->
               <td v-for="(cell, j) in row" :key="j">{{ cell }}</td>
             </tr>
           </tbody>
@@ -21,6 +24,7 @@
       </div>
 
       <div class="text-center mt-5">
+        <!-- @click: cuando el usuario hace click, llama a la funcion handleEnviar -->
         <button class="btn-enviar" type="button" @click="handleEnviar">Enviar</button>
       </div>
     </div>
@@ -28,11 +32,14 @@
 </template>
 
 <script setup>
+// Los datos de la tabla estan hardcodeados aqui como un array de arrays.
+// Cada array interno representa una fila, y cada string dentro es una celda.
 const rows = [
   ['Valor 1', 'Valor 2', 'Valor 3'],
   ['Valor 4', 'Valor 5', 'Valor 6'],
 ]
 
+// Funcion que se ejecuta al presionar el botón Enviar
 function handleEnviar() {
   alert('¡Formulario enviado correctamente!')
 }
@@ -50,6 +57,7 @@ function handleEnviar() {
   font-size: 1.6rem;
 }
 
+/* border-radius en el wrapper para esquinas redondeadas en la tabla completa */
 .table-wrapper {
   border-radius: 12px;
   overflow: hidden;
@@ -77,12 +85,13 @@ function handleEnviar() {
   transition: background .2s;
 }
 
-.table tbody tr:hover {
-  background-color: var(--naranja);
-}
-
+/* Filas pares con fondo ligeramente diferente para mejorar la legibilidad */
 .table tbody tr:nth-child(even) {
   background-color: #f4faf7;
+}
+
+.table tbody tr:hover {
+  background-color: var(--naranja);
 }
 
 .table tbody td {
