@@ -1,17 +1,18 @@
-# 🎵 Biblioteca Musical
+# Biblioteca Musical
 
 Aplicación web de portafolio desarrollada con Vue 3 y Vuetify 3. Muestra tarjetas de álbumes musicales obtenidas dinámicamente desde la API de iTunes, permitiendo al usuario actualizar las imágenes y descubrir nuevos álbumes con un solo clic.
 
 ---
 
-## 📸 Captura de pantalla
+##  Captura de pantalla
 
-<!-- Reemplaza esta línea con tu captura de pantalla -->
-![Captura de la aplicación](./screenshot.png)
+
+![Pagina principal](image.png)
+![Vista de Perros](image-1.png)
 
 ---
 
-## 🚀 Instalación y ejecución
+##  Instalación y ejecución
 
 ### Requisitos previos
 - Node.js 18 o superior
@@ -21,7 +22,7 @@ Aplicación web de portafolio desarrollada con Vue 3 y Vuetify 3. Muestra tarjet
 
 1. Clona el repositorio:
 ```bash
-git clone https://github.com/tu-usuario/tu-repositorio.git
+git clone https://github.com/OscarLeyva2711/LandingPage
 cd tu-repositorio
 ```
 
@@ -35,7 +36,7 @@ npm install
 npm run dev
 ```
 
-4. Abre tu navegador en `http://localhost:5173`
+4. Abre tu navegador en `http://localhost:3000`
 
 ### Compilar para producción
 ```bash
@@ -44,7 +45,7 @@ npm run build
 
 ---
 
-## 🛠 Tecnologías utilizadas
+##  Tecnologías utilizadas
 
 | Tecnología | Versión | Uso |
 |---|---|---|
@@ -57,7 +58,7 @@ npm run build
 
 ---
 
-## 📁 Estructura del proyecto
+##  Estructura del proyecto
 
 ```
 src/
@@ -67,8 +68,10 @@ src/
 │   ├── AppFooter.vue          # Pie de página con datos personales y fecha dinámica
 │   ├── TablaDeDatos.vue       # Tabla con perfil técnico del estudiante
 │   └── PaginaPrincipal.vue    # Componente principal — integra todo y maneja la lógica
+│   └── PerrosView.vue         # Componente para Vista secundaria en la cual se muestra una galeria secundaria.
 ├── pages/
 │   └── index.vue              # Page que renderiza PaginaPrincipal
+│   └── PerrosView.vue         # Page que renderiza PerrosView
 ├── router/
 │   └── index.ts               # Configuración de rutas
 ├── plugins/
@@ -79,7 +82,7 @@ src/
 
 ---
 
-## 🌐 Integración con la API de iTunes
+## Integración con la API de iTunes
 
 La aplicación consume la **iTunes Search API** para obtener portadas de álbumes y metadatos de artistas.
 
@@ -109,10 +112,10 @@ GET https://itunes.apple.com/search?term={artista}+{album}&entity=album&limit=1
 ### Flujo de la aplicación
 
 1. Al montar `PaginaPrincipal`, se llama automáticamente a `refreshCards()`
-2. Se seleccionan **dos índices diferentes** del pool de álbumes para garantizar que las tarjetas nunca muestren el mismo contenido
-3. Se realizan **dos peticiones en paralelo** con `Promise.all()` para optimizar el tiempo de carga
+2. Se seleccionan dos índices diferentes del pool de álbumes para garantizar que las tarjetas nunca muestren el mismo contenido
+3. Se realizan dos peticiones en paralelo con `Promise.all()` para optimizar el tiempo de carga
 4. La URL de la imagen se construye reemplazando `100x100` por `600x600` en la URL de iTunes para obtener mayor resolución
-5. Los datos resueltos (imagen, título, autor, descripción) se pasan como **props** a cada `TarjetaConImagen`
+5. Los datos resueltos (imagen, título, autor, descripción) se pasan como props a cada `TarjetaConImagen`
 6. Si ocurre un error de red, se muestra un mensaje con `v-alert` y el botón se reactiva
 
 ### Manejo de errores
@@ -124,8 +127,8 @@ GET https://itunes.apple.com/search?term={artista}+{album}&entity=album&limit=1
 
 ---
 
-## 👤 Autor
+##  Autor
 
 **Oscar Leyva Herrera**  
-Matrícula: 123456  
+Matrícula: 1191105 
 Ingeniería en Computación — Desarrollo de Aplicaciones Web
